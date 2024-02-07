@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container 
+        {
+            width:220px;
+            height:370px;
+            background-color:rgba(163, 27, 109, 0.211);
+            margin-left: 500px;
+            margin-top: 130px;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+        .one 
+        {
+            margin-left:10px;
+            padding-top:10px;
+            font-style: italic;
+        }
+        .two
+        {
+            padding-top: 20px;
+            font-style: normal;
+        }
+        #a,#b,#c
+        {
+            height:10px;
+            margin-top: 10px;
+        }
+        .four 
+        {
+            margin-top: 20px;
+        }
+        .seven 
+        {
+            margin-top: 30px;
+            display: flex;
+            padding-right:10px;
+        }
+        .btn
+        {
+            text-align: center;
+            background-color: blue;
+            width:250px;
+            font-style: normal;
+            border-radius: 8px;
+            margin-right: 25px;
+        }
+        #J 
+        {
+            padding-top: 10px;
+            text-align: center;
+            font-style: italic;
+        }
+        #J1
+        {
+            text-align: center;
+            font-style: italic;
+        }
+        #u,#p 
+        {
+          
+            margin-left:540px;
+        }
+        #u1 
+        {
+            padding-top: 15px;
+        }
+    </style>
+    <script>
+        function fun(event)
+        {
+            event.preventDefault();
+            let a2=document.getElementById("a1").value;
+            let b2=document.getElementById("b1").value;
+            let c2=document.getElementById("c1").value;
+            if((a2!="") && (b2!="") && (c2!="") && (b2==c2) && (b2.length>5 && (c2.length>5)))
+            {
+                document.getElementById("J").innerHTML ="Valid";
+                document.getElementById("J").style.visibility="visible";
+                document.getElementById("u").innerHTML =`Username: ${a2}`;
+                document.getElementById("p").innerHTML =`Password: ${b2}`;
+                
+            }
+            else if(a2=="" && (b2!=""))
+            {
+                document.getElementById("u1").innerHTML = "Username should not be empty";
+                document.getElementById("u1").style.visibility="visible";
+                document.getElementById("J1").innerHTML = "Not Valid";
+                document.getElementById("J1").style.visibility="visible";
+            }
+            else if(a2=="" && (b2!="") && (c2!=""))
+            {
+                document.getElementById("u1").innerHTML = "Username should not be empty";
+                document.getElementById("u1").style.visibility="visible";
+                document.getElementById("J1").innerHTML = "Not Valid";
+                document.getElementById("J1").style.visibility="visible";
+            }
+            else if(a2!="" && (b2==""))
+            {
+                document.getElementById("p2").innerHTML ="Password should not be empty";
+                document.getElementById("p2").style.visibility="visible";
+                document.getElementById("J1").innerHTML = "Not Valid";
+                document.getElementById("J1").style.visibility="visible";
+            }
+            else if(a2!="" &&  (b2.length<5))
+            {
+                document.getElementById("p1").innerHTML ="Password should be greater than 5 characters";
+                document.getElementById("p1").style.visibility="visible";
+                document.getElementById("J1").innerHTML = "Not Valid";
+                document.getElementById("J1").style.visibility="visible";
+            }
+            else if((a2!="") && (b2!="") && (c2!="") &&(b2!=c2))
+            {
+                document.getElementById("J2").innerHTML="Password and Confirm Password are not matched"
+                document.getElementById("J2").style.visibility="visible";
+                document.getElementById("J1").innerHTML = "Not Valid";
+                document.getElementById("J1").style.visibility="visible";
+            }
+            else if(a2=='' && b2=='' && c2=='')
+            {
+                document.getElementById("u1").style.visibility="visible";
+                document.getElementById("u1").innerHTML = "Username should not be empty";
+                document.getElementById("p2").style.visibility="visible";
+                document.getElementById("p2").innerHTML ="Password should not be empty";
+                document.getElementById("J1").innerHTML = "Not Valid";
+                document.getElementById("J1").style.visibility="visible";
+            
+            } 
+        }
+    </script>
+</head>
+<body>
+      <div class="container">
+        <form id="form">
+        <h4 class="one">Simple Form
+            <div class="two">Username:
+               <div id="a"><input type="text" id="a1"/></div>
+               <div id="u1" style="color:red;  visibility: hidden;"></div>
+                <div class="four">Password:
+                    <div id="b"><input type="password" id="b1"></div>
+                    <p id="p2" style="color:red;  visibility: hidden;"></p>
+                    <p id="p1" style="color:red;  visibility: hidden;"></p>
+                    <div class="four">Confirm Password:
+                        <div id="c"><input type="password" id="c1"></div>
+                    </div>
+                    <div class ="seven"><input type="button" class="btn" onclick="fun(event)" value="submit"></div>
+                        <div id="J" style="color:green; visibility: hidden;"></div>
+                        <div id="J1" style="color:red;  visibility: hidden;"></div>
+                        <div id="J2" style="color:red;  visibility: hidden;"></div>
+            </div>
+        </h4>
+        </form>
+      </div>
+      <p id="u"></p>
+      <p id="p"></p>
+</body>
+</html>
